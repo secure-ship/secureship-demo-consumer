@@ -1,0 +1,18 @@
+name: consumer-ci
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  call-secureship-pipeline:
+    uses: secure-ship/secureship/.github/workflows/secureship-pipeline.yml@main
+    with:
+      app-path: "."
+      image-name: "consumer-demo"
+      build-branch: "main"

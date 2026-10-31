@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Notes</title></head>
+<body>
+  <h1>Notes</h1>
+  <form method="post" action="/notes">
+    <input name="owner" placeholder="Owner" required>
+    <input name="title" placeholder="Title" required>
+    <input name="content" placeholder="Content" required>
+    <button type="submit">Add</button>
+  </form>
+  <form method="get" action="/api/notes/search">
+    <input name="q" placeholder="Search by title">
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+    <li th:each="n : ${notes}">
+      <!-- VULN 3: th:utext does not escape HTML (stored XSS) -->
+      <b th:utext="${n.title}"></b> by <span th:text="${n.owner}"></span>:
+      <span th:utext="${n.content}"></span>
+    </li>
+  </ul>
+</body>
+</html>
