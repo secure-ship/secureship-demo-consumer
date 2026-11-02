@@ -1,0 +1,10 @@
+app-path: .
+image-name: consumer-demo
+severity-cutoff: HIGH
+build-branch: main
+scanners:
+  gitleaks: true
+  semgrep: true
+  trivy: true
+  hadolint: false
+  grype: true
