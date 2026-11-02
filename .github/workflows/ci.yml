@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   call-secureship-pipeline:
-    uses: secure-ship/secureship/.github/workflows/secureship-pipeline.yml@main
+    uses: secure-ship/secureship/.github/workflows/secureship-pipeline.yml@v1.0.0
     with:
       app-path: "."
       image-name: "consumer-demo"
